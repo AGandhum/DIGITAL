@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BMW X4</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#0066cc;
+      --card-bg:#ffffff;
+      --muted:#f3f3f3;
+      --radius:14px;
+      --gap:20px;
+    }
+
+    *{box-sizing:border-box}
+    body,html{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:#fafafa;color:#111}
+
+    
+    .navbar{
+      position:fixed; top:0; left:0; right:0;
+      height:64px; display:flex; align-items:center; justify-content:space-between;
+      padding:0 28px; background:var(--card-bg); z-index:1000;
+      box-shadow:0 6px 18px rgba(16,24,40,0.06);
+    }
+    .nav-left{display:flex;gap:18px;align-items:center}
+    .nav-left button{background:none;border:none;font-weight:700;cursor:pointer;padding:8px 10px;color:#111}
+    .nav-left button:hover{color:var(--accent)}
+
+    
+    .page-wrap{max-width:1300px;margin:0 auto;padding:120px 28px 60px; display:flex; gap:var(--gap); align-items:flex-start}
+    .car-info{flex:1.25; min-width:260px}
+    .car-gallery{flex:1; min-width:320px}
+
+    
+    .car-title{margin-bottom:18px}
+    .car-title h1{font-size:56px;line-height:1;margin:0;font-weight:900}
+    .car-sub{margin-top:12px;color:#444;font-size:18px;line-height:1.65}
+
+    
+    .gallery{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 240px 200px 240px;
+      grid-template-areas:
+        "side side"
+        "front back"
+        "diagonal diagonal";
+      gap:18px;
+    }
+
+    .card{
+      position:relative;
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      box-shadow: 0 18px 30px rgba(16,24,40,0.06);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0;
+    }
+
+    /* individual areas */
+    .front   { grid-area: front;   height:100%; }
+    .side    { grid-area: side;    height:100%; }
+    .back    { grid-area: back;    height:100%; }
+    .diagonal{ grid-area: diagonal;height:100%; }
+
+    /* image sizing */
+    .card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .caption{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:10px;
+      text-align:center;
+      font-weight:700;
+      color:#111;
+      background:rgba(255,255,255,0.9); 
+    }
+
+    /* hover polish */
+    .card:hover{transform:translateY(-6px);transition:all .25s ease}
+    .card img{transition:transform .35s ease}
+    .card:hover img{transform:scale(1.03)}
+
+    /* mobile */
+    @media (max-width:900px){
+      .page-wrap{flex-direction:column;padding:110px 18px}
+      .car-info{order:1}
+      .car-gallery{order:2}
+      .gallery{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "side"
+          "front"
+          "back"
+          "diagonal";
+      }
+      .gallery .card{height:auto}
+      .card img{height:220px; object-fit:cover}
+      .car-title h1{font-size:36px}
+    }
+
+    /* very large screens tweak */
+    @media (min-width:1400px){
+      .page-wrap{gap:28px}
+      .gallery{grid-template-rows: 280px 220px 280px}
+      .car-title h1{font-size:100px}
+    }
+
+        .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 64px;
+    background: #fff; /* Change to your theme color if needed */
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-family: 'Inter', sans-serif;
+    z-index: 1000;
+  }
+
+  .nav-left {
+    display: flex;
+    gap: 24px;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #0066cc; /* BMW blue */
+  }
+  </style>
+</head>
+<body>
+
+  
+  <header class="navbar">
+  <div class="nav-left">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="index.html#models" class="nav-link">Models</a>
+  </div>
+</header>
+
+  <main class="page-wrap">
+
+<section class="car-info">
+  <div class="car-title">
+    <h1>X1</h1>
+  </div>
+  <div class="car-sub">
+    <p>
+      The BMW X1 is a compact luxury SUV combining efficiency, practicality, and sporty petrol performance. 
+      Its comfortable interior and modern technology make it ideal for city and suburban driving.
+    </p>
+  </div>
+  <div class="car-description">
+    <p><strong>Powertrain:</strong> Inline-3 or inline-4 — 241 hp.</p>
+    <p><strong>Performance:</strong> 0–60 mph ≈ 6.2 s.</p>
+    <p><strong>Fuel Efficiency:</strong> 22 mpg.</p>
+    <p><strong>Dimensions:</strong> 175″ L × 71″ W × 61″ H.</p>
+    <p><strong>Price:</strong> From $90,000.</p>
+  </div>
+</section>
+
+
+    <aside class="car-gallery">
+      <div class="gallery">
+        <div class="card side">
+          <img src="x1side.png" alt="Side view (horizontal)">
+          <div class="caption">Side View</div>
+        </div>
+
+        <div class="card front">
+          <img src="x1front.png" alt="Front view (wide)">
+          <div class="caption">Front View</div>
+        </div>
+
+        <div class="card back">
+          <img src="x1back.png" alt="Back view">
+          <div class="caption">Back View</div>
+        </div>
+
+        <div class="card diagonal">
+          <img src="x1dynamic.png" alt="Diagonal / 3/4 view">
+          <div class="caption">Diagonal View</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer style="background:#f5f5f5; color:#111; padding:60px 50px; font-family:'Inter', sans-serif; border-top:2px solid #0066cc;">
+  <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between;">
+
+    
+    <div style="flex:1; min-width:180px;">
+      <h4 style="color:#0066cc; margin-bottom:20px;">Electric</h4>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="ix.html" style="color:#111; text-decoration:none;">iX</a></li>
+        <li><a href="ix1.html" style="color:#111; text-decoration:none;">iX1</a></li>
+        <li><a href="ix2.html" style="color:#111; text-decoration:none;">iX2</a></li>
+        <li><a href="i4.html" style="color:#111; text-decoration:none;">i4</a></li>
+         <li><a href="i5.html" style="color:#111; text-decoration:none;">i5</a></li>
+        <li><a href="i7.html" style="color:#111; text-decoration:none;">i7</a></li>
+      </ul>
+    </div>
+
+    
+    <div style="flex:1; min-width:180px;">
+      <h4 style="color:#0066cc; margin-bottom:20px;">Plug-in Hybrid</h4>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="xm.html" style="color:#111; text-decoration:none;">XM</a></li>
+        <li><a href="x5-hybrid.html" style="color:#111; text-decoration:none;">X5</a></li>
+        <li><a href="x3-hybrid.html" style="color:#111; text-decoration:none;">X3</a></li>
+        <li><a href="m5-hybrid.html" style="color:#111; text-decoration:none;">M5</a></li>
+      </ul>
+    </div>
+
+    
+    <div style="flex:1; min-width:180px;">
+      <h4 style="color:#0066cc; margin-bottom:20px;">Petrol</h4>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="x7.html" style="color:#111; text-decoration:none;">X7</a></li>
+        <li><a href="x6.html" style="color:#111; text-decoration:none;">X6</a></li>
+        <li><a href="x5.html" style="color:#111; text-decoration:none;">X5</a></li>
+        <li><a href="x4.html" style="color:#111; text-decoration:none;">X4</a></li>
+        <li><a href="x3.html" style="color:#111; text-decoration:none;">X3</a></li>
+        <li><a href="x2.html" style="color:#111; text-decoration:none;">X2</a></li>
+        <li><a href="x1.html" style="color:#111; text-decoration:none;">X1</a></li>
+        <li><a href="m1.html" style="color:#111; text-decoration:none;">1 Series</a></li>
+        <li><a href="m2.html" style="color:#111; text-decoration:none;">2 Series</a></li>
+        <li><a href="m3.html" style="color:#111; text-decoration:none;">3 Series</a></li>
+        <li><a href="m4.html" style="color:#111; text-decoration:none;">4 Series</a></li>
+        <li><a href="m5.html" style="color:#111; text-decoration:none;">5 Series</a></li>
+        <li><a href="m7.html" style="color:#111; text-decoration:none;">7 Series</a></li>
+        <li><a href="m8.html" style="color:#111; text-decoration:none;">8 Series</a></li>
+        <li><a href="z4.html" style="color:#111; text-decoration:none;">Z Models</a></li>
+      </ul>
+    </div>
+
+    
+    <div style="flex:1; min-width:180px;">
+      <h4 style="color:#0066cc; margin-bottom:20px;">Diesel</h4>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="x7-diesel.html" style="color:#111; text-decoration:none;">X7</a></li>
+        <li><a href="x6-diesel.html" style="color:#111; text-decoration:none;">X6</a></li>
+        <li><a href="x5-diesel.html" style="color:#111; text-decoration:none;">X5</a></li>
+        <li><a href="x3-diesel.html" style="color:#111; text-decoration:none;">X3</a></li>
+      </ul>
+    </div>
+
+    
+    <div style="flex:1; min-width:250px;">
+      <h4 style="color:#0066cc; margin-bottom:20px;">Stay Connected</h4>
+      <p>Sign up to receive news, updates, and special offers from BMW.</p>
+      <form style="display:flex; flex-direction:column; gap:15px; margin-top:20px;">
+        <input type="text" placeholder="Full Name" style="padding:10px; border-radius:5px; border:1px solid #ccc; font-size:16px;">
+        <input type="email" placeholder="Email Address" style="padding:10px; border-radius:5px; border:1px solid #ccc; font-size:16px;">
+        <button type="submit" style="padding:12px; border-radius:5px; border:none; background:#0066cc; color:white; font-size:16px; cursor:pointer; transition:0.3s;">
+          Subscribe
+        </button>
+      </form>
+
+      <div style="margin-top:30px; display:flex; gap:15px; font-size:24px;">
+        <a href="#" style="color:#0066cc;"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="color:#0066cc;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#0066cc;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color:#0066cc;"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div style="text-align:center; margin-top:50px; font-size:14px; color:#555;">
+    <p>&copy; 2025 BMW Group. All Rights Reserved. This is a fictional demo site.</p>
+  </div>
+</footer>
+
+</body>
+</html>
